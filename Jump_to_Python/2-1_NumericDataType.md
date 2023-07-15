@@ -3,7 +3,17 @@
 * 4.24E9 = 4.24e9 = $4.24 * 10^9$
 * 0b*** = 2진수, 0o*** = 8진수, 0x*** = 16진수 (다른 진수는 직접 함수로 만들어서 사용해야함)
 ```python
-# 업데이트 해야함
+a = int(input())
+m = a
+b = []
+
+while True:
+    a, m = divmod(a, 2)
+    b.insert(0, m)
+    if d == 0:
+        break
+
+print(b)
 ```
 * N진수인 수 abc를 10진수로 바꾸는 법
 ```python
