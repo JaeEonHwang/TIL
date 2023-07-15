@@ -10,3 +10,6 @@
 origin  https://github.com/JaeEonHwang/TIL.git (fetch)<br>
 origin  https://github.com/JaeEonHwang/TIL.git (push)
 * clear 하는 단축키
+
+230716
+* 파일 순서는 원하는대로 할 수 없는지
