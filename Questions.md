@@ -12,3 +12,10 @@ origin  https://github.com/JaeEonHwang/TIL.git (push)~~
 230716
 * ~~파일 순서는 원하는대로 할 수 없는지~~
 
+230717
+* d={'number':3}
+f'I have {d['number']} apples.'
+이게 안 됨
+* f'{{ and }}' <br>
+'{ and }'
+    하는 이유가 뭔지...?

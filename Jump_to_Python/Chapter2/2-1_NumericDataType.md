@@ -10,7 +10,7 @@ b = []
 while True:
     a, m = divmod(a, 2)
     b.insert(0, m)
-    if d == 0:
+    if a == 0:
         break
 
 print(b)
