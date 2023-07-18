@@ -13,10 +13,9 @@ origin  https://github.com/JaeEonHwang/TIL.git (push)~~
 * ~~파일 순서는 원하는대로 할 수 없는지~~
 
 230717
-* d={'number':3}
+* ~~d={'number':3}
 f'I have {d['number']} apples.'
-이게 안 됨
-* f'{{ and }}' <br>
-'{ and }'
-    하는 이유가 뭔지...?
-튜플 안에 있는 리스트는 바뀌던데 그럼 튜플이 바뀌는 거 아닌지
+이게 안 됨~~
+* ~~f'{{ and }}' '{ and }'
+    하는 이유가 뭔지...?~~
+* ~~튜플 안에 있는 리스트는 바뀌던데 그럼 튜플이 바뀌는 거 아닌지~~
