@@ -95,3 +95,5 @@
     f'{3.42134234:010.4f}'
     '00003.4213'
     ```
+* 문자열 관련 함수<br>
+: count, find, index, join, upper, lower, lstrip, rstrip, strip, replace, split
