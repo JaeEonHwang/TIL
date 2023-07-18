@@ -4,10 +4,10 @@
     |---|---|
     |\n|줄바꿈|
     |\t|탭 간격|
-    |\\\\ |문자열에 \포함|
-    |\\\'|문자열에 '포함|
-    |\\\"|문자열에 "포함|
-    |\r|캐리지 리턴(커서를 현재줄 가장 앞으로|
+    |`\\`|문자열에 \포함|
+    |`\'`|문자열에 '포함|
+    |`\"`|문자열에 "포함|
+    |\r|캐리지 리턴(커서를 현재줄 가장 앞으로)|
     |\f|폼 피드(커서 위치 그대로 두고 줄 바꿈)|
     |\v|수직탭|
     |\a|벨소리|
@@ -45,9 +45,27 @@
 
     # f 문자열 포매팅 + 딕셔너리
     {'number':3}
-    f'I have {d['number']} apples.'
+    f'I have {d["number"]} apples.'
 
     # 2개 이상의 요소&변수&이름을 넣는 것도 가능
+    ```
+* f-string advancec
+    ```python
+    # 수식 입력 가능
+    f'4 * 4 is {4 * 4}'
+    4 * 4 is 16
+
+    # r-string과 동시에 사용 가능
+    pages = 100
+    fr'The book has {pages} pages\n'
+    The book has 100 pages\n
+    
+    # 함수 축약
+    def magic number():
+        return 13
+    f'{magic number() = }'
+    'magic number() = 13'
+    
     ```
 * 문자열 포맷 코드
     |코드|설명|
