@@ -57,10 +57,15 @@ for i in range(len(parsed_data)):
     empty_list = []
     empty_list.append(parsed_data[i]['name'])
     censored_user_list[parsed_data[i]['company']['name']] = empty_list
-    print(censored_user_list)
-    censorship(censored_user_list)
-    if True:
-        del censored_user_list[[parsed_data[i]['company']['name']]]
+print(censored_user_list)
+
+
+censorship(censored_user_list)
+if True:
+    pass
+else:
+    del censored_user_list[[parsed_data[i]['company']['name']]]
+
 #return censored_user_list
 
 
