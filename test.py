@@ -1,32 +1,68 @@
-def create_user(person):
-    name, age, address = person
-    user_info = {}
-    print(f'{name}님 환영합니다!')
-    user_info['name'] = name
-    user_info['age'] = age
-    user_info['address'] = address
-    people_list.append(user_info)
-    return people_list
+import requests
+from pprint import pprint as print
 
-name = ['김시습', '허균', '남영로', '임제', '박지원']
-age = [20, 16, 52, 36, 60]
-address = ['서울', '강릉', '조선', '나주', '한성부']
+# 무작위 유저 정보 요청 경로
+API_URL = 'https://jsonplaceholder.typicode.com/users'
+# API 요청
+response = requests.get(API_URL)
+# JSON -> dict 데이터 변환
+parsed_data = response.json()
 
-people = list(zip(name,age,address))
+#print(parsed_data)
+# organized_parsed_data = []
+# for i in range(len(parsed_data)):
+#     empty_dict = {}
+#     empty_dict['company'] = parsed_data[i]['company']['name']
+#     empty_dict['lat'] = parsed_data[i]['address']['geo']['lat']
+#     empty_dict['lng'] = parsed_data[i]['address']['geo']['lng']
+#     empty_dict['name'] = parsed_data[i]['name']
+#     organized_parsed_data.append(empty_dict)
 
-people_list =[]
+# dummy_data = []
+# for searched_people in range(10):
+#     if -80 < int(float(organized_parsed_data[searched_people]['lat'])) < 80 and -80 < int(float(organized_parsed_data[searched_people]['lng'])) < 80:
+#         dummy_data.append(organized_parsed_data[searched_people])
+#     else:
+#         continue
+# print(dummy_data)
 
-# for person in people:
-#     name, age, address = person
-#     create_user(name, age, address)
+black_list = ['Hoeger LLC', 'Keebler LLC', 'Yost and Sons', 'Johns Group', 'Romaguera-Crona']
 
-# print(people_list)
+# def create_user():
+#     censored_user_list = {}
+#     for i in range(len(parsed_data)):
+#         empty_list = []
+#         empty_list.append(parsed_data[i]['name'])
+#         print(empty_list)
+#         censored_user_list[parsed_data[i]['company']['name']] = empty_list
+#         print(censored_user_list)
+#         censorship(censored_user_list)
+#         if True:
+#             del censored_user_list[[parsed_data[i]['company']['name']]]
+#     return censored_user_list
 
-# print(*people[0])
-# print(people)
 
-#print(list(map(create_user,people[i])))
 
-list(map(create_user,people))
+def censorship(user_list):
+    for company in user_list:
+        if company in black_list:
+            print(f'{company} 소속의 {user_list[company][0]} 은/는 등록할 수 없습니다')
+            return False
+        else:
+            print('이상 없습니다.')
+            return True
 
-print(people_list)
+censored_user_list = {}
+for i in range(len(parsed_data)):
+    empty_list = []
+    empty_list.append(parsed_data[i]['name'])
+    censored_user_list[parsed_data[i]['company']['name']] = empty_list
+    print(censored_user_list)
+    censorship(censored_user_list)
+    if True:
+        del censored_user_list[[parsed_data[i]['company']['name']]]
+#return censored_user_list
+
+
+
+#print(create_user())
