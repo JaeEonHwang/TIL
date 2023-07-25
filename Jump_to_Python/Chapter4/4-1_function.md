@@ -1,4 +1,4 @@
-# function
+# 함수
 * 하나의 함수에 '위치 인자'와 '임의의 키워드 인자'가 함께 쓰일 수도 있음
     ```python
     def add_mul(choice, *args): 
