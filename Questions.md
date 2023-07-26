@@ -22,5 +22,5 @@ f'I have {d['number']} apples.'
 
 0724
 * 파이썬 파일명 복붙?하는 단축키
-*  stdin는 모든 대화식 입력에 사용됩니다 (input() 호출을 포함합니다) https://docs.python.org/ko/3/library/sys.html
-* eoferror: input() 함수가 데이터를 읽지 못한 상태에서 EOF (end-of-file) 조건을 만날 때 발생합니다. https://docs.python.org/ko/3/library/exceptions.html#EOFError
+*  ~~stdin는 모든 대화식 입력에 사용됩니다 (input() 호출을 포함합니다) https://docs.python.org/ko/3/library/sys.html~~
+* ~~eoferror: input() 함수가 데이터를 읽지 못한 상태에서 EOF (end-of-file) 조건을 만날 때 발생합니다. https://docs.python.org/ko/3/library/exceptions.html#EOFError~~
