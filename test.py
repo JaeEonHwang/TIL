@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open("input.txt", "r")
+
 tc_num = 0
 for test in range(10):
     tc_num += 1
