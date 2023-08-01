@@ -1,6 +1,6 @@
 import sys
 
-sys.stdin = open('inputs.txt','r')
+sys.stdin = open('input.txt','r')
 
 tc_num = 0
 for test in range(10):

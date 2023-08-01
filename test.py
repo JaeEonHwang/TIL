@@ -1,24 +1,10 @@
-import sys
-sys.stdin = open("input.txt", "r")
+arr = [3, 6, 7, 1, 5, 4]
 
-tc_num = 0
-for test in range(10):
-    tc_num += 1
-    tc = int(input())
-    buildings = list(map(int, input().split()))
-    total = 0
-    for building in buildings[2:tc-2]:
-        building_idx = buildings.index(building)
-        surrounding = [buildings[building_idx-2], buildings[building_idx - 1], buildings[building_idx + 1], buildings[building_idx + 2]]
-        if building >= buildings[building_idx-2] and building >= buildings[building_idx - 1]\
-            and building >= buildings[building_idx + 1]\
-                and building >= buildings[building_idx + 2]:
-            print(building)
-            highest_2nd = 0
-            for surround in surrounding:
-                if surround > highest_2nd:
-                    highest_2nd = surround
-            total += (building - highest_2nd)
-        else:
-            continue
-    print(f'#{tc_num} {total}')
+n = len(arr)
+
+for i in range(1<<n):
+    for j in range(n):
+        if i & (1<<j):
+            print(arr[j], end=', ')
+    print()
+#print()
