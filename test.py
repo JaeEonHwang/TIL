@@ -1,10 +1,9 @@
-arr = [3, 6, 7, 1, 5, 4]
+N = 2
+M = 4
 
-n = len(arr)
+arr  = [[0,1,2,3], [4,5,6,7]]
 
-for i in range(1<<n):
-    for j in range(n):
-        if i & (1<<j):
-            print(arr[j], end=', ')
+for i in range(M):
+    for j in range(N):
+        print(arr[j][i], end = ' ')
     print()
-#print()
