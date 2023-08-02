@@ -1,3 +1,1 @@
-a = 'asdf'
-b = list(a)
-print(b)
+print([0] + [1]*2 + [0])

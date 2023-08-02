@@ -32,16 +32,3 @@ for test_case in range(1, 11):
             break
     print(f'#{test_case} {find_max(boxes)-find_min(boxes)}')
 
-'''
-for test_case in range(1,11):
-    trial = int(input())
-    boxes = list(map(int, input().split()))
-    counts = [0] * 
-    for height in boxes:
-        counts[height-1] += 1
-    for i in range(100):
-        if counts[i] != 0:
-            counts[i] -= 1
-            counts[i+1] += 1
-        if 
-'''
