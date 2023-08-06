@@ -1,2 +1,9 @@
-arr = [[1,2,3],[4,5,6],[7,8,9]]
+import sys
 
+stdin = open("input.txt", "r")
+
+data = []
+n = int(sys.stdin.readlines())
+data.append(list(map(int,sys.stdin.readlines().split())) for _ in range(n))
+
+print(data)
