@@ -2,56 +2,72 @@ import sys
 sys.stdin = open('input.txt', 'r')
 
 
-def decode(lst):
-    code_check = []
-    a = 1
-    check = ''.join(lst[-7::a])
-    while check not in secret_code.values():
-        a += 1
-        check = ''.join(lst[-7*a::a])
-    while len(code_check) < 8:
+def password_sum(lst):
+    global ratio
+    temp = []
+    for j in range(8):
         number = ''
-        for j in range(7):
-            for _ in range(1, a):
-                lst.pop()
-                lst.insert(0, '0')
-                lst.insert(0, '0')
-            number = lst.pop() + number
-        for j in range(10):
-            if number == secret_code[j]:
-                code_check.insert(0, j)
-                break
+        try:
+            for i in range(7):
+                number = lst[-1 - ratio * i - 7 * j * ratio] + number
+            temp.insert(0, secret_code[number])
+        except:
+            ratio -= 1
+            return password_sum(lst)
 
-    total = 0
-    for j in range(4):
-        total += (code_check[2 * j] * 3)
-        total += code_check[2 * j + 1]
-    if total % 10 == 0:
-        return sum(code_check)
+    my_sum = 0
+    for i in range(4):
+        my_sum += (temp[2 * i] * 3)
+        my_sum += temp[2 * i + 1]
+    if my_sum % 10 == 0:
+        return sum(temp)
     else:
-        if sum(list(map(int, lst))) == 0:
-            return 0
-        else:
-            decode(lst)
+        return 0
 
 
-secret_code = {0: '0001101', 1: '0011001', 2: '0010011', 3: '0111101', 4: '0100011',\
-               5: '0110001', 6: '0101111', 7: '0111011', 8: '0110111', 9: '0001011'}
+secret_code = {'0001101': 0, '0011001': 1, '0010011': 2, '0111101': 3, '0100011': 4,\
+               '0110001': 5, '0101111': 6, '0111011': 7, '0110111': 8, '0001011': 9}
 
 
 T = int(input())
 for tc in range(1, T + 1):
-    N, M = map(int, input().split())
-    arr = [input() for _ in range(N)]
-    for i in range(N):
-        try:
-            int(arr[i])
-        except:
-            if i == 0 or arr[i] != arr[i-1]:
-                binary = []
-                for z in range(M):
-                    for k in range(3, -1, -1):
-                        binary.append('1' if int(arr[i][z], 16) & 1 << k else '0')
-                while binary[-1] == '0':
-                    binary.pop()
-                print(decode(binary))
+    N, M = map(int, input().strip().split())
+    arr = []
+    for row in range(N):
+        arr.append(list(input().strip()))
+    for row in range(N-1, 0, -1):
+        for col in range(M):
+            if arr[row][col] == arr[row-1][col]:
+                arr[row][col] = '0'
+    new_arr = []
+    for row in range(N):
+        if int(''.join(arr[row]), 16) != 0:
+            new_arr.append(arr[row])
+    for row in range(len(new_arr)):
+        new_arr[row] = list(''.join(new_arr[row]).strip('0'))
+        new_arr[row].insert(0, '0')
+
+    total = 0
+    for row in new_arr:
+        binary = []
+        for i in row:
+            for j in range(3, -1, -1):
+                binary.append('1' if int(i, 16) & 1 << j else '0')
+
+        while sum(map(int, binary)) != 0:
+            binary = list(''.join(binary).strip('0'))
+            while len(binary) % 56 != 0:
+                binary.insert(0, '0')
+            count1 = 0
+            idx1 = -1
+            while binary[idx1] == '1':
+                count1 += 1
+                idx1 -= 1
+            ratio = min(count1, len(binary) // 14)
+            total += password_sum(binary)
+            del binary[len(binary) - ratio * 56:]
+    print(f'#{tc} {total}')
+
+
+
+
