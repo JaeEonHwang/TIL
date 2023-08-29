@@ -17,8 +17,6 @@ def check_difference(num1, num2):
     for i in range(len(num1)):
         if num1[i] != num2[i]:
             countd += 1
-            if abs(int(num1[i]) - int(num2[i])) > 1:
-                return False
             if countd > 2:
                 return False
     if countd == 1:
@@ -31,6 +29,12 @@ T = int(input())
 for tc in range(1, T+1):
     binary = input()
     ternary = input()
-    for t in range(2**len(binary)):
-        if check_difference(binary, bin(t)[2:]) and check_difference(ternary, jinsu(t, 3)):
-            print(f'#{tc} {t}')
+    for i in range(1, len(binary)):
+        if binary[i] == '0':
+            b = binary[:i] + '1' + binary[i+1:]
+        else:
+            b = binary[:i] + '0' + binary[i + 1:]
+        if check_difference(jinsu(int(b, 2), 3), ternary):
+            print(f'#{tc} {int(b,2)}')
+            break
+
