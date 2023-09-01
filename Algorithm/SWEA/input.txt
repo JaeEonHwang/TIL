@@ -1,3 +1,13 @@
-1
-4 3
-1 2 1 2
+3
+2 3
+WLL
+LLL
+3 2
+WL
+LL
+LW
+4 5
+LLLWW
+WWLLL
+LLLWL
+LWLLL

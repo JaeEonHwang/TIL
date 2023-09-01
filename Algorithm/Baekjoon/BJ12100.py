@@ -1,52 +1,111 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-import copy
+from copy import deepcopy
 
 
-def game2048(ARR, n, d, move):
+def game2048(k):
+    global cnt
     global max_v
-    arr = copy.deepcopy(ARR)
-    arrs[move] = arr
-    if move > 4:
-        for row in range(n):
-            for col in range(n):
-                if arr[row][col] > max_v:
-                    max_v = arr[row][col]
-    else:
-        for i in range(drt[d][0][0], drt[d][0][1], drt[d][0][2]):
-            for j in range(drt[d][0][0]-1, drt[d][0][1], drt[d][0][2]):
-                if arr[i][j] == 0:
-                    for k in range(0, n):
-                        if 0 <= i+(k+1)*drt[d][2] < n and 0 <= j+(k+1)*drt[d][3] < n:
-                            arr[i+k*drt[d][2]][j+k*drt[d][3]] = arr[i+(k+1)*drt[d][2]][j+(k+1)*drt[d][3]]
-                        else:
-                            arr[i+k*drt[d][2]][j+k*drt[d][3]] = 0
+    if k == 5:
+        for row in range(N):
+            if max(arrs[5][row]) > max_v:
+                max_v = max(arrs[5][row])
+        return
+
+    for i in range(4):
+        if arrs[k+1] != arrs[k]:
+            arrs[k + 1] = deepcopy(arrs[k])
+            arr = arrs[k + 1]
+        else:
+            arr = arrs[k + 1]
+        if i == 0:
+            for row in range(N):
+                for col in range(N-1, 0, -1):
+                    if arr[row][:arr[row].count(0)] == [0] * arr[row].count(0):
+                        break
+                    temp = 0
+                    while arr[row][col] == 0:
+                        temp += 1
+                        if temp > N:
                             break
-            for j in range(drt[d][1][0], drt[d][1][1], drt[d][1][2]):
-                if 0 <= i + drt[d][2] < n and 0 <= j + drt[d][3] < n and arr[i][j] == arr[i + drt[d][2]][j + drt[d][3]]:
-                    arr[i][j] *= 2
-                    for k in range(1, n):
-                        if 0 <= i+(k+1)*drt[d][2] < n and 0 <= j+(k+1)*drt[d][3] < n:
-                            arr[i + k * drt[d][2]][j + k * drt[d][3]] = arr[i + (k + 1) * drt[d][2]][j + (k + 1) * drt[d][3]]
-                        else:
-                            arr[i + k * drt[d][2]][j + k * drt[d][3]] = 0
+                        for j in range(col):
+                            arr[row][col - j] = arr[row][col - j - 1]
+                        arr[row][0] = 0
+                for col in range(N - 1, 0, -1):
+                    if arr[row][col] == arr[row][col-1] and arr[row][col] != 0:
+                        arr[row][col] *= 2
+                        for j in range(1, col):
+                            arr[row][col - j] = arr[row][col - j - 1]
+                            if arr[row][col - j - 1] == 0:
+                                break
+                        arr[row][0] = 0
+        elif i == 1:
+            for row in range(N):
+                for col in range(N - 1):
+                    if arr[row][-arr[row].count(0):] == [0] * arr[row].count(0):
+                        break
+                    temp = 0
+                    while arr[row][col] == 0:
+                        temp += 1
+                        if temp > N:
                             break
-                else:
-                    continue
-        for a in range(4):
-            game2048(arrs[move], n, a, move + 1)
+                        for j in range(N - 1 - col):
+                            arr[row][col+j] = arr[row][col + j + 1]
+                        arr[row][-1] = 0
+                for col in range(N - 1):
+                    if arr[row][col] == arr[row][col+1] and arr[row][col] != 0:
+                        arr[row][col] *= 2
+                        for j in range(1, N - 1 - col):
+                            arr[row][col + j] = arr[row][col + j + 1]
+                            if arr[row][col + j + 1] == 0:
+                                break
+                        arr[row][-1] = 0
+        elif i == 2:
+            for col in range(N):
+                for row in range(N - 1, 0, -1):
+                    temp = 0
+                    while arr[row][col] == 0:
+                        temp += 1
+                        if temp > N:
+                            break
+                        for j in range(row):
+                            arr[row-j][col] = arr[row-j-1][col]
+                        arr[0][col] = 0
+                for row in range(N - 1, 0, -1):
+                    if arr[row][col] == arr[row - 1][col] and arr[row][col] != 0:
+                        arr[row][col] *= 2
+                        for j in range(1, row):
+                            arr[row-j][col] = arr[row-j-1][col]
+                            if arr[row-j-1][col] == 0:
+                                break
+                        arr[0][col] = 0
+        elif i == 3:
+            for col in range(N):
+                for row in range(N-1):
+                    temp = 0
+                    while arr[row][col] == 0:
+                        temp += 1
+                        if temp > N:
+                            break
+                        for j in range(N-1-row):
+                            arr[row + j][col] = arr[row + j + 1][col]
+                        arr[-1][col] = 0
+                for row in range(N-1):
+                    if arr[row][col] == arr[row+1][col] and arr[row][col] != 0:
+                        arr[row][col] *= 2
+                        for j in range(1, N-1-row):
+                            arr[row+j][col] = arr[row+j+1][col]
+                            if arr[row+j+1][col] == 0:
+                                break
+                        arr[-1][col] = 0
+        game2048(k + 1)
+
 
 N = int(input())
-table = [list(map(int, input().split())) for _ in range(N)]
-# 동, 남, 서, 북 = 0, 1, 2, 3
-drt = {0: ((0, N, 1), (N-1, -1, -1), 0, -1),
-       1: ((N-1, -1, -1), (0, N, 1), 1, 0),
-       2: ((N-1, -1, -1), (0, N, 1), 0, -1),
-       3: ((0, N, 1), (N-1, -1, -1), 1, 0)}
+board = [list(map(int, input().split())) for _ in range(N)]
 max_v = 0
-arrs = [0] * (2*N)
-arrs[0] = table
-for b in range(4):
-    game2048(arrs[0], N, b, 1)
+arrs = [[]] * 6
+arrs[0] = board
+game2048(0)
 print(max_v)
