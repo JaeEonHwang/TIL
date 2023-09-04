@@ -13,20 +13,45 @@ def max_per_inning(arr):
         ai = arr[i]
         if sum(ai):
             ai.sort()
+            startidx = 0
             for j in range(9):
                 if ai[j] != 0:
                     startidx = j
                     break
             cnt0 = 0
+            fnhit = ''
             while cnt0 < 3:
                 if ai[startidx] == 0:
                     cnt0 += 1
                 else:
-                    score = (score << ai[startidx]) + 2 ** (ai[startidx] - 1)
+                    score += 1
+                    if ai[startidx] == 4:
+                        fnhit = ''
+                    else:
+                        fnhit += str(ai[startidx])
                 startidx = (startidx + 1) % 9
-            for k in bin(score)[-3:]:
-                if k == '1':
+            if fnhit == '':
+                pass
+            elif fnhit[-1] == '3' or len(fnhit) == 1:
+                score -= 1
+            elif fnhit[-1] == '2':
+                if fnhit[-2] == '1':
+                    score -= 2
+                else:
                     score -= 1
+            else:
+                if len(fnhit) == 2:
+                    if fnhit[0] == '3':
+                        score -= 1
+                    else:
+                        score -= 2
+                else:
+                    if fnhit[-3:] == '111':
+                        score -= 3
+                    elif fnhit[-2] == '3':
+                        score -= 1
+                    else:
+                        score -= 2
         if i == N-1:
             max_score[N-1] = score
         else:
@@ -59,11 +84,21 @@ for lineup in lineups:
                 continue
             inning_score = (inning_score << a) + 2**(a-1)
             total += 1
-        a = bin(inning_score)[-3:]
-        for i in range(-3, 0):
-            if a[i] == '1':
+        if inning_score < 8:
+            if inning_score == 0:
+                pass
+            elif inning_score == 7:
+                total -= 3
+            elif inning_score == 1 or inning_score == 2 or inning_score == 4:
                 total -= 1
-        if inning < N-1 and total + max_score[inning + 1] <= max_v:
+            else:
+                total -= 2
+        else:
+            a = bin(inning_score)
+            for i in range(-3, 0):
+                if a[i] == '1':
+                    total -= 1
+        if inning < N-1 and total + max_score[inning + 1] < max_v:
             break
     if max_v < total:
         max_v = total
