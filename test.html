@@ -3,24 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>삼성 청년 SW 아카데미</title>
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 0;
+      box-sizing: border-box;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    .bigbox {
+      width: 800px;
+      height: 800px;
+      margin: 0;
+      border: 1px black solid;
+      box-sizing: content-box;
+    }
+    .collapse {
+      border-collapse: collapse;
+    }
+    .white {
+      background-color: white;
+    }
+    .black {
+      background-color: black;
+    }
+    .imgsize {
+      height: 98px;
+      width: 98px;
+    }
+    .queenmove {
+      position: relative;
+      top: -300px;
+      left: -300px;
+      z-index: 9999px;
+    }
+    .rookmove {
+      position: relative;
+      left: -200px;
+    }
+    .kingmove {
+      position: relative;
+      left: 200px
+    }
+  </style>
 </head>
 <body>
-  <p><a href="https://www.ssafy.com/"><img src="ssafy_logo.png" alt="ssafy_logo"></a></p>
-  <p><img src="ssafy_logo2.png" alt="ssafy_logo2"></p>
-  <h1>삼성청년 SW 아카데미</h1>
-  <h2>대한민국 SW의 미래를 이끕니다.</h2>
-  <p>삼성의 SW 교육 경홈과 고용노동부의 취업 지원 노하우를 바탕으로, 
-  취업 준비생에게 SW 역량 향샹 교육 및 다양한 취업지원 서비스를 제공하여 취업에 성공하도록 돕는 프로그램입니다.</p>
-  <p>본 교육과정은 삼성이 주관하고 고용노동부가 후원하며, 아이들과 미래재단이 함께합니다.</p>
-  <p>(교육운영은 멀티캠퍼스에서 위탁 실시)</p>
-  <p>주관 <img src="multicampus.jpg" alt="multicampus"> 후원 <img src="labor.jpg" alt="labor"></p>
-  <p><img src="http://random.imagecdn.app/500/500/" alt="random1"></p>
-  <p>최고의 교육</p>
-  <p><img src="http://random.imagecdn.app/500/500/" alt="random2"></p>
-  <p>맞춤형 교육</p>
-  <p><img src="http://random.imagecdn.app/500/500/" alt="random3"></p>
-  <p>자기주도적 학습</p>
-</body>
+  <table class="collapse bigbox">
+    <tr>
+      <td class="white box"></td><td class="black box"></td><td class="white box"></td><td class="black box"></td><td class="white box"></td><td class="black box"></td><td class="white box"></td><td class="black box"></td>
+    </tr>  
+    <tr>
+      <td class="black box"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td>
+    </tr>
+    <tr>
+      <td class="white box"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td>
+    </tr>
+    <tr>
+      <td class="black box"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td>
+    </tr>
+    <tr>
+      <td class="white box"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td>
+    </tr>
+    <tr>
+      <td class="black box"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td>
+    </tr>
+    <tr>
+      <td class="white box"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td><td class="white"></td><td class="black"></td>
+    </tr>
+    <tr>
+      <td class="black box"></td><td class="white"></td><td class="black"></td><td class="white"><img class="imgsize queenmove" src="white_king.png" alt="white_queen"></td><td class="black"><img class="imgsize kingmove" src="white_queen.png" alt="white_king"></td><td class="white"></td><td class="black"></td><td class="white"><img class="imgsize rookmove" src="white_rook.png" alt="white_rook"></td>
+    </tr>
+  </table>
+  </body>
 </html>
-
