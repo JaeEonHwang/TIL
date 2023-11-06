@@ -1,65 +1,38 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
+# 아이디어: 이미 순서대로 서있는 아이들을 제외하고 나머지 아이들만 옮기면 된다.
+# 백준에 있는 예제를 예로 들면
+# 제일 앞 2명인 3, 7번은 오름차순으로 서 있으므로 나머지 5명를 옮기면 전체 오름차순을 만들 수 있다.
+# 단, 아이 이동을 최소로 하기 위해서는 오름차순으로 서있는 아이의 수가 제일 많은 조합을 찾아야한다.
+# 예제에서는 3 5 6이 이미 오름차순으로 서 있기 때문에
+# 나머지인 1 2 4 7만 옮겨주면 정렬할 수 있다.
+# 처음에는 combination으로 풀었다가 (당연히) 시간초과가 나서 다른 방법을 찾았다.
 
-# def my_sort(dict):
-#     change = 0
-#     while True:
-#         gap = 0
-#         num = len(dict)+1//2
-#         for i in range(1, N + 1):
-#             if abs(i - dict[i]) > gap or (abs(i - dict[i]) == gap and abs(len(dict)+1//2 - i) > abs(len(dict)+1//2 - num)):
-#                 gap = abs(i - dict[i])
-#                 num = i
-#         if gap == 0:
-#             return change
-#         else:
-#             if num > dict[num]:
-#                 for i in range(1, len(dict) + 1):
-#                     if num >= dict[i] > dict[num]:
-#                         dict[i] -= 1
-#                 dict[num] = num
-#             else:
-#                 for i in range(1, len(dict) + 1):
-#                     if num <= dict[i] < dict[num]:
-#                         dict[i] += 1
-#                 dict[num] = num
-#         change += 1
-#
-#
-# N = int(input())
-# kids = {}
-# # 숫자: 인덱스
-# for i in range(1, N + 1):
-#     kids[int(input())] = i
-#
-# print(my_sort(kids))
-
-from collections import deque
-
-def order(s, lst):
-    global max_order
-    if kids[s] == max(kids[s:]):
-        if max_order < len(lst):
-            max_order = len(lst)
-    else:
-        for i in range(s+1, N):
-            if lst[-1] < kids[i]:
-                lst.append(kids[i])
-                order(i, lst)
-                lst.pop()
-
-
+# 아이의 수
 N = int(input())
-kids = []
-max_order = 1
-for _ in range(N):
-    kids.append(int(input()))
-
-
+# 어떠한 조합으로 특정 아이가 포함된 오름차순을 만들 때, 해당 아이가 들어갈 수 있는 순서를 order의 인덱스로 저장
+# order[3]에 들어있는 아이는 어찌어찌 오름차순을 만들었을 때 최대 4번째로 오름차순에 포함될 수 있다.
+# (인덱스는 0부터 시작하니까)
+order = [[N + 1] for _ in range(N)]
+# 최대 오름차순의 길이를 제기 위한 변수
+# order를 처음에 빈 리스트로 만들고 계속 append한 뒤 마지막에 len으로 구할 수도 있었지만
+# append 계속 쓰면 시간 오래 걸릴까봐 인덱스로 접근
+max_idx = 0
 for i in range(N):
-    deq = deque()
-    deq.append(kids[i])
-    order(i, deq)
+    # 현재 서있는 순서대로 아이 번호 받아옴
+    kid = int(input())
+    temp = 0
+    # 오름차순으로 정렬하려면 이전 순서에 있는 숫자보다 커야하므로
+    # 임의의 오름차순에서 올 수 있는 제일 작은 수보다 아이 번호가 커야함
+    # 아이가 임의의 오름차순에서 설 수 있는 인덱스 구한 후
+    while min(order[temp]) < kid:
+        temp += 1
+    # 아이 추가
+    order[temp].append(kid)
+    # 오름차순 최대 길이 업데이트
+    if temp > max_idx:
+        max_idx = temp
 
-print(N - max_order)
+# 전체 아이 수 - 오름차순으로 설 수 있는 아이 수
+print(N - (max_idx + 1))
