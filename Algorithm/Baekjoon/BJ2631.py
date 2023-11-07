@@ -14,7 +14,7 @@ N = int(input())
 # 어떠한 조합으로 특정 아이가 포함된 오름차순을 만들 때, 해당 아이가 들어갈 수 있는 순서를 order의 인덱스로 저장
 # order[3]에 들어있는 아이는 어찌어찌 오름차순을 만들었을 때 최대 4번째로 오름차순에 포함될 수 있다.
 # (인덱스는 0부터 시작하니까)
-order = [[N + 1] for _ in range(N)]
+order = [N + 1] * N
 # 최대 오름차순의 길이를 제기 위한 변수
 # order를 처음에 빈 리스트로 만들고 계속 append한 뒤 마지막에 len으로 구할 수도 있었지만
 # append 계속 쓰면 시간 오래 걸릴까봐 인덱스로 접근
@@ -26,10 +26,10 @@ for i in range(N):
     # 오름차순으로 정렬하려면 이전 순서에 있는 숫자보다 커야하므로
     # 임의의 오름차순에서 올 수 있는 제일 작은 수보다 아이 번호가 커야함
     # 아이가 임의의 오름차순에서 설 수 있는 인덱스 구한 후
-    while min(order[temp]) < kid:
+    while order[temp] < kid:
         temp += 1
     # 아이 추가
-    order[temp].append(kid)
+    order[temp] = kid
     # 오름차순 최대 길이 업데이트
     if temp > max_idx:
         max_idx = temp

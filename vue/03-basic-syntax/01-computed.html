@@ -11,6 +11,7 @@
   <div id="app">
     <h2>남은 할 일</h2>
     <p>{{ restOfTodos }}</p>
+    <p>{{ getRestOfTodos() }}</p>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -26,12 +27,17 @@
         ])
 
         const restOfTodos = computed(() => {
-          return todos.value.length > 0 ? '아직 남았다': '퇴근!'
+          return todos.value.length > 0 ? '아직 남았다' : '퇴근!'
         })
+
+        const getRestOfTodos = function () {
+          return todos.value.length > 0 ? '아직 남았다' : '퇴근!'
+        }
 
         return {
           todos,
-          restOfTodos
+          restOfTodos,
+          getRestOfTodos,
         }
       }
     })

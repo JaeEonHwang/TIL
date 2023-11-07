@@ -22,13 +22,14 @@
       setup() {
         const count = ref(0)
         const message = ref(null)
+
         onMounted(() => {
           console.log('mounted')
         })
-        onUpdated (() => {
-          message.value = 'updated!'
-        })
 
+        onUpdated(() => {
+          message.value = 'updated~!'
+        })
 
         return {
           count,
