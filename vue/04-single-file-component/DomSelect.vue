@@ -1,17 +1,20 @@
 <template>
   <div>
-    <input type="text" ref="input">
+    <input type="text" ref="ssafy">
   </div>
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue'
+// ref 속성으로 직접 DOM 요소 선택하기
+import { ref, onMounted } from 'vue'
 
-  const input = ref('home')
+const ssafy = ref()
 
-  console.log(input.value)
+onMounted(() => {
+  console.log(ssafy.value)
+})
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

@@ -8,7 +8,8 @@
 </template>
 
 <script setup>
-  import MyComponentItem from './MyComponentItem.vue'
+import MyComponentItem from '@/components/MyComponentItem.vue'
+
 </script>
 
 <style scoped>

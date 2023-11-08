@@ -5,12 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b3399c8-512d-4486-8aa3-1e641793643f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BJ15989.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BJ2169.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Baekjoon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Baekjoon.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BJ15989.py" beforeDir="false" afterPath="$PROJECT_DIR$/BJ15989.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/DomSelect.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/DomSelect.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/MyComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/MyComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/.vscode/extensions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/assets/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/assets/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/assets/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/assets/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/components/MyComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/components/MyComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/components/MyComponentItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/components/MyComponentItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/04-single-file-component/vue-project/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,28 +35,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
   <component name="ProjectId" id="2UISNmbdwwIZackX8eGo3aLtYRD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/user/Desktop/ssafy/TIL/Algorithm/Baekjoon"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\ssafy\TIL\Algorithm\Baekjoon" />
       <recent name="C:\Users\SSAFY\Desktop\jaeeon\TIL\Algorithm\Baekjoon" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.BJ2169">
+  <component name="RunManager" selected="Python.BJ15989">
     <configuration name="BJ1522" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Baekjoon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -149,8 +154,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.BJ2169" />
         <item itemvalue="Python.BJ15989" />
+        <item itemvalue="Python.BJ2169" />
         <item itemvalue="Python.BJ2631" />
         <item itemvalue="Python.BJ1522" />
         <item itemvalue="Python.BJ5972" />
@@ -178,6 +183,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

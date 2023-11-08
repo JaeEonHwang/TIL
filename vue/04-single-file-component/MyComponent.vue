@@ -1,18 +1,15 @@
 <template>
-  <div class="greeting">
-    {{ msg }}
-    <input v-model="msg">
-  </div>
+  <div class="greeting">{{ msg }}</div>
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const msg = ref('Hello World!')
+const msg = ref('hello world!')
 </script>
 
 <style scoped>
-  .greeting {
-    color: red;
-  }
+.greeting {
+  color: crimson;
+}
 </style>
