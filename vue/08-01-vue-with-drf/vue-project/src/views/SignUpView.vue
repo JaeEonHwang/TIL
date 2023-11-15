@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Login View</h1>
   </div>
 </template>
 
@@ -8,6 +7,6 @@
 
 </script>
 
-<style scoped>
+<style>
 
 </style>

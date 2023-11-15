@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import UserView from '@/views/UserView.vue'
 import LoginView from '@/views/LoginView.vue'
 
+
+const isAuthenticated = true
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -24,7 +27,8 @@ const router = createRouter({
       name: 'user',
       component: UserView,
       beforeEnter: (to, from) => {
-        console.log('from '+from.name+' to '+to.name)
+        console.log(to)
+        console.log(from)
       }
     },
     {
@@ -32,9 +36,8 @@ const router = createRouter({
       name: 'login',
       component: LoginView,
       beforeEnter: (to, from) => {
-        const isAthenticated = true
-        if (isAthenticated) {
-          console.log('이미 로그인 됨')
+        if (isAuthenticated === true) {
+          console.log('이미 로그인되어 있습니다.')
           return { name: 'home' }
         }
       }
@@ -47,13 +50,13 @@ const router = createRouter({
 //   console.log(from)
 // })
 
-// router.beforeEach((to, from) => {
-//   const isAthenticated = false
-//   if (!isAthenticated && to.name != 'login') {
-//     console.log('로그인이 필요합니다.')
-//     console.log(to)
-//     return { name: 'login'}
-//   }
-// })
+router.beforeEach((to, from) => {
+  const isAuthenticated = false
+  
+  if (!isAuthenticated && to.name !== 'login') {
+    console.log('로그인이 필요합니다.')
+    return { name: 'login' }
+  }
+})
 
 export default router

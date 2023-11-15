@@ -1,0 +1,73 @@
+git project
+이름
+
+git branch
+master - beta - 승광, 재언
+1. merge는 local에서 같이 확인하면서
+2. beta에서 작동 확인 후 master merge
+
+django
+1. user 모델부터 migrate 하고 다른 모델 만들기(아니면 처음부터 다시 해야함)
+2. 모델 만들 때는 무조건 default 넣기(나중에 모델 수정할 때 편함)
+3. blank=True 적극 활용 
+4. 쓸만한 tmdb api
+genres - movie List(한국어)
+movie lists - now playing(한국어), popular(한국어), top rated(한국어), upcoming(한국어)
+movie - details(배우 감독 정보 없음, 한국어), Images, Recommendations(관련 영화, 한국어), 
+, similar(장르, 키워드 비슷한 영화, 한국어 있음), videos
+people lists - popular(배우, 감독 사용, 한국어 없음)
+people - details(한국어 없음), images(한국어 없음), movie credits(한국어 없음)
+trending - movies(한국어 있음), people(한국어 있음)
+
+
+4. 모델 계획
+모두 tmdb id는 우선 저장해두기
+imdb id도?
+
+장르
+
+영화
+
+유저 팔로우?
+
+배우 모델
+
+감독 모델
+
+recommendation 모델
+
+영화 찜 모델
+
+영화 점수 모델
+
+게시글 모델
+
+게시글 좋아요 모델
+
+게시글 댓글 모델
+
+해시태그
+
+트렌드 영화, 트렌드 피플 모델 따로 만들기
+
+
+장르 모델 채우기
+1. popular 검색해서 배우, 감독의 people id 추출 후 저장
+2. people detail 검색에서 people 모델 채우기 (people - image)
+3. people - movie credit 검색해서 영화 모델 채우고(movie-images, videos), people과 movie 모델 저장(MtM)
+4. recommendation 모델(MTM) 채우기
+5. 트렌드 영화, 사람 모델 만들고 채우기
+6. movie list 활용해서 모델 만들기
+
+popolur 검색 -> (배우이거나 감독이면) people id 추출 -> movie credits 검색 ->
+'character' 있으면 배우로 추가, 없고 department가 디렉팅이면 감독으로 추가 ->
+각 영화 id로 
+
+
+
+
+
+
+vue
+1. 이미 있는 ott 참고하면 좋을 듯
+2. 		
