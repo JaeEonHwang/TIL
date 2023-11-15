@@ -71,3 +71,7 @@ popolur 검색 -> (배우이거나 감독이면) people id 추출 -> movie credi
 vue
 1. 이미 있는 ott 참고하면 좋을 듯
 2. 		
+
+
+
+api_key=e95b79709ef9e216e667b4d9554f60f5
